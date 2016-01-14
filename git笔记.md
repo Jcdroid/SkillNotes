@@ -12,6 +12,8 @@
 
 从本地仓库移除文件夹：`git rm -r --cached <floder>`
 
+移除文件：`git rm <file>`
+
 添加提交文件到本地仓库：`git commit -m "message"`
 
 从本地仓库push文件到远程主仓库：`git push origin master`
