@@ -7,6 +7,7 @@
 * 克隆远程仓库：`git clone <url>`
 * 克隆远程仓库（只clone master分支的每个文件最新的一个提交）：`git clone <url> master --depth=1`
 * 添加所有文件：`git add *`
+* 移动文件或目录，或是更改其名称：`git mv <old path> <new path>`、`git mv <old name> <new name>`
 * 从本地仓库移除文件夹：`git rm -r --cached <floder>`
 * 移除文件：`git rm <file>`
 * 添加提交文件到本地仓库：`git commit -m "message"`
