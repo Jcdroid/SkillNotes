@@ -18,7 +18,7 @@
 * 查看commit日志（仅显示SHA1的前7个字符）：`git log --abbrev-commit`
 * 查看commit日志（一行显示，仅显示SHA1的前7个字符混合使用）：`git log --pretty=oneline --abbrev-commit`
 * 插件commit日志（显示 ASCII 图形表示的分支合并历史）：`git log --graph`
-* 自定义commit日志格式：`git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative`
+* 自定义commit日志格式：`git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --`
 * 查看仓库状态：`git status`
 * 查看修改：`git diff`
 * 撤销添加到缓存区的修改：`git reset HEAD <file>`，`HEAD`表示最新的版本
@@ -75,6 +75,20 @@
 * 通过标签创建分支：`git checkout -b <branch> <tag>`
 
 
+###别名
+下面列出了一些有用的别名：
+
+| 别名 Alias | 命令 Command | 如何设置 What to Type |
+| --- | --- | --- |
+| `git cm` | `git commit` | `git config --global alias.cm commit` |
+| `git co` | `git checkout` | `git config --global alias.co checkout` |
+| `git ac` | `git add . -A` `git commit` | `git config --global alias.ac '!git add -A && git commit'` |
+| `git st` | `git status -sb` | `git config --global alias.st 'status -sb'` |
+| `git tags` | `git tag -l` | `git config --global alias.tags 'tag -l'` |
+| `git branches` | `git branch -a` | `git config --global alias.branches 'branch -a'` |
+| `git cleanup` | `git branch --merged \| grep -v '*' \| xargs git branch -d` | `git config --global alias.cleanup "!git branch --merged | grep -v '*' | xargs git branch -d"` |
+| `git remotes` | `git remote -v` | `git config --global alias.remotes 'remote -v'` |
+| `git lg` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
 
 ### 参考
 
