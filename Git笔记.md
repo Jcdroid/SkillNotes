@@ -96,3 +96,4 @@
 2. [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 3. [分支管理](http://zengrong.net/post/1746.htm)
 4. [git commit日志输出](http://ruby-china.org/topics/939)
+5. [Git备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
