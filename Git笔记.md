@@ -23,6 +23,7 @@
 * 查看修改：`git diff`
 * 撤销添加到缓存区的修改：`git reset HEAD <file>`，`HEAD`表示最新的版本
 * 设置别名：`git config --global alias.<alias> <original name>`或直接在`.gitconfig`文件中添加
+* 改变中文默认转义成/xxx/xxx/xxx：`git config --global core.quotepath false` ore.quotepath设为false的话，就不会对0×80以上的字符进行quote。中文显示正常。
 
 ```
 [alias]
@@ -96,4 +97,5 @@
 2. [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 3. [分支管理](http://zengrong.net/post/1746.htm)
 4. [git commit日志输出](http://ruby-china.org/topics/939)
-5. [Git备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
+5. [GitHub备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
+6. [git乱码解决方案汇总](https://gist.github.com/vkyii/1079783#file-git-txt)
