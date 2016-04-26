@@ -54,6 +54,14 @@
 * 重命名本地分支：`git branch -m <preBranchName> <branch>`
 * 重命名远程分支：重命名远程分支实际上就是删除远程分支，然后修改本地分支名，再推送本地分支到远程
 
+
+### merge命令
+> 合并分支时，如果可能，Git会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。
+
+* 合并指定分支到当前分支：`git merge <branch>`
+* 禁用`Fast forward`模式的合并（能够在分支删除后保留合并信息）：`git merge --no-ff -m "message" <branch>`
+
+
 ###stash命令
 * 储藏当前的改变（切换分支时可以保存现场，不需要先commit changes）：`git stash`
 * 查看stash队列：`git stash list`
@@ -90,6 +98,14 @@
 | `git cleanup` | `git branch --merged \| grep -v '*' \| xargs git branch -d` | `git config --global alias.cleanup "!git branch --merged | grep -v '*' | xargs git branch -d"` |
 | `git remotes` | `git remote -v` | `git config --global alias.remotes 'remote -v'` |
 | `git lg` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
+
+### GitLab操作
+* 分支权限管理：
+> * 在`Member`中添加用户，`Project Access`选择`Developer`；
+> * 在`Setting`-`Protected Branches`中，选择需要管理的分支，如果勾选`Developers can push`，则`Developer`用户可以`push`，否则不能`push`到对应的分支；
+> * 用户没有`push`权限时，在`Xcode`中会有下图所示的提示
+> ![not permission](images/git_push_have_not_permission.jpg)
+ 
 
 ### 参考
 
