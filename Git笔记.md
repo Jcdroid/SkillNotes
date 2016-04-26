@@ -11,6 +11,8 @@
 * 从本地仓库移除文件夹：`git rm -r --cached <floder>`
 * 移除文件：`git rm <file>`
 * 添加提交文件到本地仓库：`git commit -m "message"`
+* 修改最后一次提交（如果已经推送了最后一次提交就不要修正它）：`git commit --amend`
+* 修改多个提交信息（这是一个变基命令 - 在 HEAD~3..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息）：`git rebase -i HEAD~3`
 * 从本地仓库push文件到远程主仓库：`git push origin master`
 * 从远程主仓库pull文件到本地仓库：`git pull origin master`
 * 查看commit日志：`git log`
@@ -109,9 +111,10 @@
 
 ### 参考
 
-1. [How can I add an empty directory to a Git repository? -> Mark Amery](http://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
-2. [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-3. [分支管理](http://zengrong.net/post/1746.htm)
-4. [git commit日志输出](http://ruby-china.org/topics/939)
-5. [GitHub备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
-6. [git乱码解决方案汇总](https://gist.github.com/vkyii/1079783#file-git-txt)
+1. [Git教程](https://git-scm.com/book/zh/v2)
+2. [How can I add an empty directory to a Git repository? -> Mark Amery](http://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
+3. [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+4. [分支管理](http://zengrong.net/post/1746.htm)
+5. [git commit日志输出](http://ruby-china.org/topics/939)
+6. [GitHub备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
+7. [git乱码解决方案汇总](https://gist.github.com/vkyii/1079783#file-git-txt)
