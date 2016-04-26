@@ -108,7 +108,9 @@
 > * 在`Setting`-`Protected Branches`中，选择需要管理的分支，如果勾选`Developers can push`，则`Developer`用户可以`push`，否则不能`push`到对应的分支；
 > * 用户没有`push`权限时，在`Xcode`中会有下图所示的提示
 > ![not permission](images/git_push_have_not_permission.jpg)
- 
+
+### 速查表
+ ![image](images/Git常用命令.jpg)
 
 ### 参考
 
