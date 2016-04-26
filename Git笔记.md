@@ -12,7 +12,8 @@
 * 移除文件：`git rm <file>`
 * 添加提交文件到本地仓库：`git commit -m "message"`
 * 修改最后一次提交（如果已经推送了最后一次提交就不要修正它）：`git commit --amend`
-* 修改多个提交信息（这是一个变基命令 - 在 HEAD~3..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息）：`git rebase -i HEAD~3`
+* 修改多个提交信息（这是一个变基命令 - 在 HEAD~<number>..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息）：先执行`git rebase -i HEAD~<number>`变基，然后把需要编辑的提交id前面的`pick`改为`edit`后退出编辑，运行`git commit --amend`，修改好message后，再运行`git rebase --continue`后将会自动地应用另外前面的几个提交
+> 这个命令将会自动地应用另外两个提交，然后就完成了。 如果需要将不止一处的 pick 改为 edit，需要在每一个修改为 edit 的提交上重复这些步骤（运行`git commit --amend`，修改好message后，再运行`git rebase --continue`）。 每一次，Git 将会停止，让你修正提交，然后继续直到完成。
 * 从本地仓库push文件到远程主仓库：`git push origin master`
 * 从远程主仓库pull文件到本地仓库：`git pull origin master`
 * 查看commit日志：`git log`
