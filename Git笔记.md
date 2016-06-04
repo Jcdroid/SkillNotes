@@ -170,6 +170,20 @@
 
  ![image](images/Git常用命令.jpg)
 
+
+
+### 出现的问题
+
+* A电脑改名后提交到git，然后B电脑也改动了同一个文件，但是在`pull`之前B电脑没有`commit`，而是使用`stash`再`pull`下远程的改动，然后再`stash pop`之后解决`updated stream`和`stash`产生的冲突，最后出现了下面的问题，一直使用`add`都不能`add`进`index`中。折腾半天后，发现时由于A电脑改名的引起的问题，于是执行`git mv git笔记.md Git笔记.md`修复了。**可能是由于之前在A电脑上rename没有使用 `git rm`**。详细记录如下：
+
+![image](images/改名后冲突合并.png)
+
+![image](images/改名后冲突合并1.png)
+
+![image](images/改名后冲突合并2.png)
+
+
+
 ### 参考
 
 1. [Git教程](https://git-scm.com/book/zh/v2)
