@@ -8,7 +8,8 @@
 ### 基本操作
 * 初始化：`git init`
 * 添加远程仓库：`git remote add origin <url>`
-* 移除已添加远程仓库：`git remote set-url origin <url>`
+* 更换已添加远程仓库：`git remote set-url origin <url>`
+* 移除已添加远程仓库：`git remote rm origin`
 * 克隆远程仓库：`git clone <url>`
 * 克隆远程仓库（只clone master分支的每个文件最新的一个提交）：`git clone <url> master --depth=1`
 * 添加所有文件：`git add *`
@@ -184,6 +185,9 @@
 ### 常见错误
 * `Xcode`执行`commit`时出现`Couldn’t communicate with a helper application.`
 > 可以在命令行中使用`git commit <file> -m <message>`
+
+* 如果Xcode进行pull出现检测冲突，检测完之后没有出现冲突的类的选取的编辑框，也没有pull成功
+> 用命令行进行pull，出现冲突后，手动解决冲突即可
 
 * error: pathspec 'xxx.m' did not match any file(s) known to git.
 > 可以在命令行中使用`git commit <file> -m <message>`

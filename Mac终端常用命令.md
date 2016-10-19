@@ -1,5 +1,6 @@
 # Mac终端常用命令
 ### 基本命令
+* 如果出现`Permission denied`，可使用`chmod +x <file.sh>`或者` chmod 777 <file.sh>`来获得权限后，再重试
 * 列出文件：`ls`
 * 转换目录：`cd xxx/xxx`
 * 建立新目录：`mkdir <dir name>`
