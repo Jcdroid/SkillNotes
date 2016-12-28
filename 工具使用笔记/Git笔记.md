@@ -14,7 +14,7 @@
 * 克隆远程仓库（只clone master分支的每个文件最新的一个提交）：`git clone <url> master --depth=1`
 * 添加所有文件：`git add *`
 * 移动文件或目录，或是更改其名称：`git mv <old path> <new path>`、`git mv <old name> <new name>`
-* 从本地仓库移除文件夹：`git rm -r --cached <floder>`
+* 从本地仓库移除文件或文件夹：`git rm --cached <filename>`、`git rm -r --cached <floder>`
 * 移除文件：`git rm <file>`
 * 添加提交文件到本地仓库：`git commit -m "message"`
 * 停止变基：`git rebase --abort`
@@ -32,7 +32,7 @@
 * 自定义commit日志格式：`git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --`
 * 查看仓库状态：`git status`
 * 查看修改：`git diff`
-* 生成一个新的提交来撤销某次提交，此次提交之前的commit都会被保留：`git revert <commit id>`
+* 生成一个新的提交来撤销某次提交，此次提交之前的commit记录都会被保留，并且工程将恢复到对应commit id位置：`git revert <commit id>`
 * 撤销添加到缓存区的修改：`git reset HEAD <file>`，`HEAD`表示最新的版本
 * 设置别名：`git config --global alias.<alias> <original name>`或直接在`.gitconfig`文件中添加
   
@@ -76,7 +76,7 @@
 * 修改多个提交信息（这是一个变基命令 - 在 HEAD~<number>..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息）：先执行`git rebase -i HEAD~<number>`变基，然后把需要编辑的提交id前面的`pick`改为`edit`后退出编辑，运行`git commit --amend`，修改好message后，再运行`git rebase --continue`后将会自动地应用另外前面的几个提交
 > 这个命令将会自动地应用另外两个提交，然后就完成了。 如果需要将不止一处的 pick 改为 edit，需要在每一个修改为 edit 的提交上重复这些步骤（运行`git commit --amend`，修改好message后，再运行`git rebase --continue`）。 每一次，Git 将会停止，让你修正提交，然后继续直到完成。
 
-#### [git reset, git checkout, git revert 区别](https://segmentfault.com/a/1190000003102737)  **关于git reset会撤销工作区的文件的说法是错误的，只会撤销工作区的修改，但不是删除未添加到暂存区的文件**
+#### [git reset, git checkout, git revert 区别](https://segmentfault.com/a/1190000003102737)  **关于git reset会撤销工作区的文件的说法是错误的，只会撤销工作区的修改，但不是删除未添加到暂存区的文件（另外要注意三种模式--soft、--mixed、--hard）**
 
 ##### git checkout (**撤销工作区的修改**)
 > 注意：git checkout只会撤销修改的文件，对于从未add的文件是没有git checkout -- file操作的。
@@ -92,9 +92,12 @@
 
 * 撤销添加到缓存区的修改：`git reset HEAD <file>`，`HEAD`表示最新的版本
 * 版本回退（**慎用，会撤销工作区文件的修改和所有添加到暂存区的文件<也就是所有add和modify的文件>，但是不会撤销工作区的没有添加到暂存区的文件<也就是所有没有add的文件>**）：`git reset --hard <commid id>`
-* **--soft**： staged snapshot 和 working directory 都未被改变 (建议在命令行执行后，再输入 git status 查看状态)，也就是保留之前的`add`。
+* **--soft**： staged snapshot 和 working directory 都未被改变 (建议在命令行执行后，再输入 git status 查看状态)，也就是保留之前的`add`。**注意，就算是先执行过`git rebase`变换过commit顺序，使用`git reset --soft`也会保留这个commit的所有改动的文件记录到暂存区，变成绿色**
 * **--mixed**： staged snapshot 被更新， working directory 未被更改。【这是默认选项】（建议同上)，也就是不保留之前的`add`，同时未`add`的文件会保留在文件需要手动重新`add`。
 * **--hard**： 只有staged snapshot将回退， working directory修改的文件会被撤销working directory 未添加的文件不会删掉。
+
+#### git revert
+* git revert 命令通过创建一次新的 commit 来撤销一次 commit 所做出的修改。这种撤销的方式是安全的，因为它并不修改 commitm history, 比如下边的命令将会查出倒数第二次（即当前commit的往前一次）提交的修改，并创建一个新的提交，用于撤销当前提交的上一次 commit。
 
 ### 分支
 * 新建本地分支：`git branch <branch>`
@@ -116,11 +119,14 @@
 > 合并分支时，如果可能，Git会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。
 
 * 合并指定分支到当前分支：`git merge <branch>`
-* 禁用`Fast forward`模式的合并（能够在分支删除后保留合并信息）：`git merge --no-ff -m "message" <branch>` 
+* 禁用`Fast forward`模式的合并（能够在分支删除后保留合并信息）：`git merge --no-ff -m "message" <branch>`
+* 撤销merge：找到在这个分支上提交的最新的commit，然后执行`git reset --hard <commit id>`即可
 
 ### stash命令
 
 ###stash命令
+> stash应用的场景：1.还没写完不想commit；2.commit在错误的分支，不想合并这个commit到另一个分支，这时就可以先`reset --soft`退回然后`stash`,再checkout到另一个分支commit。
+
 * 储藏当前的改变（切换分支时可以保存现场，不需要先commit changes。特别注意：**使用stash时，untracked的文件将会丢失**）：`git stash`
 * 查看stash队列：`git stash list`
 * 恢复stash（并删除对应的stash）：`git stash pop stash@{<num>}`
@@ -134,7 +140,7 @@
 * 修改多条commit：`git rebase –i HEAD~n`后，把其中一个`pick`改为`edit`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可
 * 终端rebase：`git rebase --abort`
 * 重排提交：`git rebase –i HEAD~n`（内部顺序为反序），然后到里面修改提交顺序，退出即可，**注意里面还可以删除掉某个commit提交**
-* 压制(Squashing)提交：`git rebase –i HEAD~n`后，把其中一个`pick`改为`s`或`squash`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可，如下图![image](images/9C672565-608E-45AD-A5D8-010FE19A8A36.png)
+* 压制(Squashing)提交：`git rebase –i HEAD~n`后，把其中一个`pick`改为`s`或`squash`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可，如下图![image](../images/9C672565-608E-45AD-A5D8-010FE19A8A36.png)
 
 ### checkout命令
 * 回滚文件到某一个Commit位置：`git checkout <commit id> <file path>`
@@ -174,13 +180,13 @@
 > * 在`Member`中添加用户，`Project Access`选择`Developer`；
 > * 在`Setting`-`Protected Branches`中，选择需要管理的分支，如果勾选`Developers can push`，则`Developer`用户可以`push`，否则不能`push`到对应的分支；
 > * 用户没有`push`权限时，在`Xcode`中会有下图所示的提示
-> ![not permission](images/git_push_have_not_permission.jpg)
+> ![not permission](../images/git_push_have_not_permission.jpg)
 
 ### Github使用手册
 * [地址](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
 
 ### 速查表
- ![image](images/Git常用命令.jpg)
+ ![image](../images/Git常用命令.jpg)
 
 ### 常见错误
 * `Xcode`执行`commit`时出现`Couldn’t communicate with a helper application.`
@@ -197,19 +203,22 @@
 
 * A电脑改名后提交到git，然后B电脑也改动了同一个文件，但是在`pull`之前B电脑没有`commit`，而是使用`stash`再`pull`下远程的改动，然后再`stash pop`之后解决`updated stream`和`stash`产生的冲突，最后出现了下面的问题，一直使用`add`都不能`add`进`index`中。折腾半天后，发现时由于A电脑改名的引起的问题，于是执行`git mv git笔记.md Git笔记.md`修复了。**可能是由于之前在A电脑上rename没有使用 `git rm`**。详细记录如下：
 
-![image](images/改名后冲突合并.png)
+![image](../images/改名后冲突合并.png)
 
-![image](images/改名后冲突合并1.png)
+![image](../images/改名后冲突合并1.png)
 
-![image](images/改名后冲突合并2.png)
+![image](../images/改名后冲突合并2.png)
 
 ### 参考
 
 1. [Git教程](https://git-scm.com/book/zh/v2)
 2. [GitHub备忘录](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
 3. [Git教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+3. [Git简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
 4. [How can I add an empty directory to a Git repository? -> Mark Amery](http://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
 5. [分支管理](http://zengrong.net/post/1746.htm)
 6. [git commit日志输出](http://ruby-china.org/topics/939)
 7. [git乱码解决方案汇总](https://gist.github.com/vkyii/1079783#file-git-txt)
 8. [How can I merge two commits into one?](http://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one)
+9. [git-recipes-高质量的Git中文教程](https://github.com/geeeeeeeeek/git-recipes/wiki)
+10. [代码回滚：Reset、Checkout、Revert的选择](https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-代码回滚：Reset、Checkout、Revert的选择)
