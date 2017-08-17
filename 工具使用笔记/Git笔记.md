@@ -156,6 +156,7 @@
 * 查看标签：`git tag`
 * 查看标签信息：`git show <tag>`
 * 创建带有说明的标签，用-a 指定标签名，-m指定说明文字：`git tag -a <tag> -m <message>`
+* 对某次commit创建带有说明的标签，用-a 指定标签名，-m指定说明文字：`git tag -a <tag> <commit id> -m <message>`
 * 用GPG签名标签（必须安装gpg）：`git tag -s <tag> -m <message>`
 * 通过标签创建分支：`git checkout -b <branch> <tag>`
 
