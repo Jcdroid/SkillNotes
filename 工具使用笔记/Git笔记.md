@@ -162,6 +162,8 @@
 
 ### 别名
 
+**别名文件定义[.gitconfig](../files/.gitconfig)**
+
 下面列出了一些有用的别名：
 
 | 别名 Alias       | 命令 Command                               | 如何设置 What to Type                        |
