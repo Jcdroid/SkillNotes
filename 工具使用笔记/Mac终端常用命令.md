@@ -11,6 +11,9 @@
 * 在finder中打开当前目录：`open .`
 * 查看man手册：`man <any command name>`
 * 在pdf中查看man手册：`man cal <any command name> | open -a Preview -f`
+* 打印当前目录所有文件夹占空间大小：`du -sh *`
+* 查找目录下的apk文件，也可以是其他文件：`find <dir>/ -name *.apk`
+* 创建文件：`touch <file>`
 
 ### 目录操作
 |命令名|功能描述|举例|

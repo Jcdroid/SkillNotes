@@ -10,16 +10,21 @@
 * **调整显示器颜色**：`系统偏好设置` - `显示器设置` - `普通RGB颜色`
 * **查看IP地址**：终端运行`ifconfig`
 
-### 删除GarageBand
+### Mac系统占用存储太多
+##### 删除GarageBand
 ```
 rm -rf /Library/Application\ Support/GarageBand
 rm -rf /Library/Application\ Support/Logic
 rm -rf /Library/Audio/Apple\ Loops
 ```
 
+##### 检查根目录的文件夹大小
+在终端使用`du -sh *`可以查看，删除过大不必须的文件夹
+
 ### 常见问题
 * 出现不能打开图片，并且弹出提示需要权限
-> 重启电脑即可
+
+	> 重启电脑即可
 
 ### 绿豆沙色值
 * RGB: R(199)、G()237、B(204)
