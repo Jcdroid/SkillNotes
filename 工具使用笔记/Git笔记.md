@@ -81,7 +81,7 @@
   
 * 忽略文件和文件夹：新建`.gitignore`（windows中需要创建时使用.gitignore.后面加一个.才不会报不能存在空名字的问题），然后添加忽略文件和文件夹的路径，如果想忽略文件夹下面的所有文件和文件夹，但是同时想保存这个文件夹，这时就需要在这个文件夹下面新建.gitkeep文件(1)
   
-* 改变中文默认转义成/xxx/xxx/xxx：`git config --global core.quotepath false` ore.quotepath设为false的话，就不会对0×80以上的字符进行quote。中文显示正常。
+* 改变中文默认转义成/xxx/xxx/xxx：`git config --global core.quotepath false`  core.quotepath设为false的话，就不会对0×80以上的字符进行quote。中文显示正常。
   
 * 更改remote：`git remote rm origin`然后添加`git remote add origin <url>`
   
