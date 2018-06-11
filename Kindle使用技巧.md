@@ -1,4 +1,9 @@
 
+### 下载地址
+* [gutenberg](http://www.gutenberg.org)
+* [Library Genesis](http://gen.lib.rus.ec/)
+* []()
+
 ### RSS订阅
 * [在线RSS订阅](https://reabble.com/)和[Inoreader](https://www.inoreader.com/)配合使用
 * [kindle4rss](https://kindle4rss.com/)
@@ -7,3 +12,9 @@
 
 ### Kindle Chrome插件
 * [Send Kindle](https://chrome.google.com/webstore/detail/send-to-kindle-by-klipme/ipkfnchcgalnafehpglfbommidgmalan?hl=zh-CN)
+
+### 参考
+* [有哪些经验可以送给 Kindle 新人？](https://www.zhihu.com/question/29852397)
+* [clippings](https://www.clippings.io/)
+* [Calibre](https://calibre-ebook.com/)
+* [KindleEar](http://kindle.xuhehuan.com/static/faq.html)

@@ -136,8 +136,7 @@
 * **--hard**： 只有staged snapshot将回退， working directory修改的文件会被撤销working directory 未添加的文件不会删掉。
 
 #### git revert
-
-* git revert 命令通过创建一次新的 commit 来撤销一次 commit 所做出的修改。这种撤销的方式是安全的，因为它并不修改 commitm history, 比如下边的命令将会查出倒数第二次（即当前commit的往前一次）提交的修改，并创建一个新的提交，用于撤销当前提交的上一次 commit。
+* `git revert` 命令通过创建一次新的 `commit` 来撤销一次 `commit` 所做出的修改。这种撤销的方式是安全的，因为它并不修改 commit history, 比如下边的命令将会查出倒数第二次（即当前commit的往前一次）提交的修改，并创建一个新的提交，用于撤销当前提交的上一次 commit。
 
 ### 分支
 
@@ -151,7 +150,8 @@
 * 查看远程分支：`git branch -r`
 * 查看所有分支（包括远程分支）：`git branch -a`
 * 删除远程分支：`git push origin --delete <branch>`或`git push origin :<branch>`
-* 跟踪（tracking）远程分支：`git checkout -b [分支名] [远程名]/[分支名]`
+* 跟踪（tracking）并切换到远程分支：`git checkout -b [分支名] [远程名]/[分支名]`
+* 让本地分支跟踪远程分支：`git branch --set-upstream-to=origin/<branch> <local_branch>`
 * 重命名本地分支：`git branch -m <preBranchName> <branch>`
 * 重命名远程分支：重命名远程分支实际上就是删除远程分支，然后修改本地分支名，再推送本地分支到远程
 
@@ -162,11 +162,9 @@
 * 合并指定分支到当前分支：`git merge <branch>`
 * 禁用`Fast forward`模式的合并（能够在分支删除后保留合并信息）：`git merge --no-ff -m "message" <branch>`
 * 撤销merge：找到在这个分支上提交的最新的commit，然后执行`git reset --hard <commit id>`即可
+* 如果不想在merge时出现merge commit的记录，可以在命令后面加上`--no-commit`
 
 ### stash命令
-
-### stash命令
-
 > stash应用的场景：1.还没写完不想commit；2.commit在错误的分支，不想合并这个commit到另一个分支，这时就可以先`reset --soft`退回然后`stash`,再checkout到另一个分支commit。
 
 * 储藏当前的改变（切换分支时可以保存现场，不需要先commit changes。特别注意：**使用stash时，untracked的文件将会丢失**）：`git stash`
@@ -176,13 +174,14 @@
 * 清空stash队列：`git stash clear`
 * 取消储藏：`git stash show -p stash@{0} | git apply -R`
 * 从储藏中创建分支：`git stash branch <branch name>`
+* 当执行`git stash pop`出现文件冲突时，可以先解决冲突，再`git stash drop`删除stash，因为冲突时不会主动删除stash记录
 
 ### rebase命令
 
 * 修改多条commit：`git rebase –i HEAD~n`后，把其中一个`pick`改为`edit`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可
 * 终端rebase：`git rebase --abort`
 * 重排提交：`git rebase –i HEAD~n`（内部顺序为反序），然后到里面修改提交顺序，退出即可，**注意里面还可以删除掉某个commit提交**
-* 压制(Squashing)提交：`git rebase –i HEAD~n`后，把其中一个`pick`改为`s`或`squash`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可，如下图![image](../images/9C672565-608E-45AD-A5D8-010FE19A8A36.png)
+* 压制(Squashing)提交：`git rebase –i HEAD~n`后，把其中一个`pick`改为`s`或`squash`，退出编辑进入新的message编辑窗口，然后编辑message后退出即可，如下图![image](../images/压制提交.png)
 
 ### checkout命令
 
@@ -256,14 +255,33 @@
 * The source control operation failed because no repository could be found.
   
   > 可以在命令行中使用`git commit <file> -m <message>`
-  
+
+* Git - Your branch and 'origin/xxx' have diverged
+
+	> 在本地分支执行`git rebase`，然后`push`到远端
+
 * A电脑改名后提交到git，然后B电脑也改动了同一个文件，但是在`pull`之前B电脑没有`commit`，而是使用`stash`再`pull`下远程的改动，然后再`stash pop`之后解决`updated stream`和`stash`产生的冲突，最后出现了下面的问题，一直使用`add`都不能`add`进`index`中。折腾半天后，发现时由于A电脑改名的引起的问题，于是执行`git mv git笔记.md Git笔记.md`修复了。**可能是由于之前在A电脑上rename没有使用 `git rm`**。详细记录如下：
 
-![image](../images/改名后冲突合并.png)
+	![image](../images/改名后冲突合并.png)
 
-![image](../images/改名后冲突合并1.png)
+	![image](../images/改名后冲突合并1.png)
 
-![image](../images/改名后冲突合并2.png)
+	![image](../images/改名后冲突合并2.png)
+如果出现大小写文件夹出现冲突的问题，比如只想保留大写下面的文件，那就可以先把同时处在两个大小写不同的目录下的文件复制出来（实际中你只能看到一个文件，但这个文件代表两个目录下的文件），再使用`git rm -r <floder>`移除，再把备份的文件copy进来，以达到删除小写目录的操作
+
+* 当`git status`出现下面的`have diverged`状态并且不能pull时
+
+	```
+	On branch develop
+Your branch and 'origin/develop' have diverged,
+and have 2 and 8 different commits each, respectively.
+	```
+可尝试关闭编辑器，可能是编辑器占用资源引起的
+
+### git commit的message规范
+* `ADD <msg>` 增加文件、功能等
+* `MOD <msg>` 修改文件、逻辑等
+* `FIX <msg>` 修复Bug
 
 ### 参考
 

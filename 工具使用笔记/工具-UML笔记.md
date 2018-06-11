@@ -15,6 +15,9 @@
   6. 实现 - Realization
   >接口之间也可以有与类之间关系类似的继承关系和依赖关系，但是接口和类之间还存在一种实现(Realization)关系，在这种关系中，类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，类与接口之间的实现关系用带空心三角形的虚线来表示。
   
+### PlantUML
+* [使用Emacs敲出UML，PlantUML快速指南](http://archive.3zso.com/archives/plantuml-quickstart.html)
+  
 ###注意
 几种关系所表现的强弱程度依次为：`组合>聚合>关联>依赖`
 
