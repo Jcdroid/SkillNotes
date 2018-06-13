@@ -1,5 +1,10 @@
 # RSS源
 
+### 工具
+* [inoreader](https://www.inoreader.com/)
+* [feedly](https://feedly.com/)
+* [RSSHub](https://docs.rsshub.app/)
+
 ### 知识
 * 知乎每日精选:`http://www.zhihu.com/rss`
 * 果壳网:`http://www.guokr.com/rss/`
