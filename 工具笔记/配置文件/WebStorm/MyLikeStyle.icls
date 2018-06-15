@@ -1,0 +1,22 @@
+<scheme name="MyLikeStyle" version="142" parent_scheme="Default">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2018-06-13T17:07:50</property>
+    <property name="ide">WebStorm</property>
+    <property name="ideVersion">2018.1.2.0.0</property>
+    <property name="modified">2018-06-13T17:08:01</property>
+    <property name="originalScheme">MyLikeStyle</property>
+  </metaInfo>
+  <option name="LINE_SPACING" value="1.1" />
+  <option name="EDITOR_FONT_SIZE" value="14" />
+  <option name="EDITOR_FONT_NAME" value="Menlo" />
+  <option name="CONSOLE_FONT_NAME" value="Menlo" />
+  <attributes>
+    <option name="TEXT">
+      <value>
+        <option name="FOREGROUND" value="0" />
+        <option name="BACKGROUND" value="c7edcc" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

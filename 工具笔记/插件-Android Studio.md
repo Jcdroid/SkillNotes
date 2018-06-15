@@ -9,7 +9,7 @@
 * [android-butterknife-zelezny](http://plugins.jetbrains.com/plugin/7369-android-butterknife-zelezny) 配合ButterKnife实现注解，从此不用写findViewById
 * [RemoveButterKnife](http://plugins.jetbrains.com/plugin/8432-removebutterknife) 移除butterknife注解代码
 * [GsonFormat](http://plugins.jetbrains.com/plugin/7654-gsonformat) 快速将json字符串转换成一个Java Bean，免去我们根据json字符串手写对应Java Bean的过程
-* [ADB WIFI](http://plugins.jetbrains.com/plugin/7856-adb-wifi) 使用wifi无线调试你的app，无需root权限
+* [Android ADB WIFI](http://plugins.jetbrains.com/plugin/7856-adb-wifi) 使用wifi无线调试你的app，无需root权限
 * [folding](https://github.com/dmytrodanylyk/folding-plugin) 布局文件分组
 * [PermissionsDispatcher](https://plugins.jetbrains.com/plugin/8349-permissionsdispatcher-plugin) 自动生成6.0权限的代码，需要装载第三方库
 * [AndroidLocalizationer](http://plugins.jetbrains.com/plugin/7629-android-localizationer) 将项目中的 string 资源自动翻译为其他语言

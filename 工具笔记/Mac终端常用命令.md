@@ -20,6 +20,7 @@
 * 查看IP：`ifconfig`或`ifconfig en0`
 * 检查根目录的文件夹大小：`du -sh *`可以查看，删除过大不必须的文件夹
 * 打印目录tree型结构：`find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'`**（但是）我无法指定打印层级**
+* 可以使用工具`tree`打印目录tree型结构（可以指定层级）：`tree -L 3`
 
 ### 解压zip
 语法：unzip [options] 压缩文件名.zip，具体跟多的参数可以直接执行"unzip"查看
