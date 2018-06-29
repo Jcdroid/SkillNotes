@@ -2,7 +2,7 @@
 ### 基本命令
 * 如果出现`Permission denied`，可使用`chmod +x <file.sh>`或者` chmod 777 <file.sh>`来获得权限后，再重试
 
-* `chmod +x`和`chmod 777`可以将文件转换为双击可执行的文件，这样就可以把文件变成默认终端打开，前提是**不能**`touch <file>`时给file命令带有后缀
+* `chmod +x`和`chmod 777`可以将文件转换为双击可执行的文件，这样就可以把文件变成默认终端打开，前提是**不能**`touch <file>`时给file命名带有后缀
 * 列出文件：`ls`
 * 转换目录：`cd xxx/xxx`
 * 建立新目录：`mkdir <dir name>`
