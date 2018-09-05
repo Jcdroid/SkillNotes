@@ -17,7 +17,7 @@
 * [MVPHelper](http://plugins.jetbrains.com/plugin/8507-mvphelper) 可以为MVP生成接口以及实现类
 * [TinyPic](https://github.com/shenjiajun53/TinyPic) 压缩图片资源，一次最多压缩500张 压缩的核心功能是TinyPng这个网站提供的。在[开发者页面](https://tinypng.com/developers)下申请api key。对于一个key，每月有500次的免费压缩额度，如果压缩超过了 500张图片，就不能使用了。需要另外付费。但是申请这个api特别简单，填下邮箱，用户名就行，多申请 两个邮箱。1000张图片也妥妥够了。 这里推荐google个十分钟邮箱，不需要注册，只能使用十分钟，用来收一下验证码很方便。
 * [Lifecycle Sorter](http://plugins.jetbrains.com/plugin/7742-lifecycle-sorter)可以根据Activity或者fragment的生命周期对其生命周期方法位置进行先后排序，快捷键Ctrl + alt + K
-* [CodeGlance](http://plugins.jetbrains.com/plugin/7275-codeglance) 在右边可以预览代码，实现快速定位
+* [CodeGlance](http://plugins.jetbrains.com/plugin/7275-codeglance) 在右边可以预览代码，实现快速定位，minimap
 * [JsonOnlineViewer](http://plugins.jetbrains.com/plugin/7838-jsononlineviewer) 在Android Studio中请求、调试接口
 * [Android Styler](http://plugins.jetbrains.com/plugin/7972-android-styler) 根据xml自动生成style代码的插件
 * [Android Drawable Importer](http://plugins.jetbrains.com/plugin/7658-android-drawable-importer) 一个非常强大的图片导入插件。它导入Android图标与Material图标的Drawable ，批量导入Drawable ，多源导入Drawable（即导入某张图片各种dpi对应的图片）

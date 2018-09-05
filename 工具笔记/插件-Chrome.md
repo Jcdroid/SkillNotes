@@ -1,9 +1,3 @@
-* Adblock Plus
-* Momentum
-* OneTab
-* Vimium
-* Octotree
-* Save to Pocket
 * Alexa Traffic Rank
 * EasyReader & 阅读模式
 * [Send to Kindle](https://chrome.google.com/webstore/detail/send-to-kindle-by-klipme/ipkfnchcgalnafehpglfbommidgmalan?hl=zh-CN)
@@ -21,7 +15,7 @@
 * [Alexa](https://www.alexa.com/)
 * [Save to Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj)
 * [PostMan](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
-* [JSON Formatter](https://github.com/callumlocke/json-formatter)
+* [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
 * [Steward](http://oksteward.com/) 类似Alfred和Wox的Chrome命令启动器扩展
 * [单词小卡片-查词收集背单词](https://chrome.google.com/webstore/detail/单词小卡片-查词收集背单词/oegblnjiajbfeegijlnblepdodmnddbk) 配合Steward和`单词小卡片`小程序一起使用
 * [简悦 - SimpRead](https://chrome.google.com/webstore/detail/simpread-reader-view/ijllcpnolfcooahcekpamkbidhejabll)
@@ -30,6 +24,7 @@
 * [react-developer-tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 * [Wappalyzer](https://www.wappalyzer.com/) 查看网站使用的技术
 * [JetBrains IDE Support](https://chrome.google.com/webstore/detail/inkoiibnbpihoajgfooepihmclbhjkad) WebStrom调试工具
+* [octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US)
 
 
 ## 参考
