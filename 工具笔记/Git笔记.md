@@ -218,6 +218,16 @@
 | `git remotes`  | `git remote -v`                          | `git config --global alias.remotes 'remote -v'` |
 | `git logpre`   | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.logpre "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
 
+### submodule
+
+##### 创建submodule工程
+* 使用`git submodule add <url> <path>`，不加path默认当前路径
+
+##### 构建submodule工程
+* 构建包含submodule的工程时，先进行`git submodule init`，然后再执行`git submodule update --remote`
+* 如果出现`Please make sure you have the correct access rights and the repository exists.`错误，可能是没有库访问的权限问题
+* 如果出现`Host key verification failed. fatal: Could not read from remote repository.`，则请用ssh链接，并生成ssh的`id_rsa.pub`文件并配置到git服务器端，配置好之后执行`ssh -T git@xxx.com`，输入yes回车即可，参考[这里](https://blog.csdn.net/jingtingfengguo/article/details/51892864)
+
 ### GitLab操作
 
 * 分支权限管理：
@@ -296,3 +306,4 @@ and have 2 and 8 different commits each, respectively.
 9. [How can I merge two commits into one?](http://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one)
 10. [git-recipes-高质量的Git中文教程](https://github.com/geeeeeeeeek/git-recipes/wiki)
 11. [代码回滚：Reset、Checkout、Revert的选择](https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-代码回滚：Reset、Checkout、Revert的选择)
+12. [Git 原理入门](http://www.ruanyifeng.com/blog/2018/10/git-internals.html)

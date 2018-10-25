@@ -3,7 +3,6 @@
 * [Send to Kindle](https://chrome.google.com/webstore/detail/send-to-kindle-by-klipme/ipkfnchcgalnafehpglfbommidgmalan?hl=zh-CN)
 
 ## Chrome插件
-* [将Github上的开源项目以树形结构展示在页面左侧](https://github.com/buunguyen/octotree)
 * [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=zh-CN) [帮助](http://sspai.com/27723) ![](http://cdn.sspai.com/attachment/thumbnail/2014/12/16/6d5fb6202a03c35727794fc681e0558831ce8_mw_800_wm_1_wmp_3.jpg)
 * [Codota Extension](https://chrome.google.com/webstore/detail/codota/cnpdaoipdfbkpdbdpmceeejdaabiebcb)
 * [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall)
@@ -25,6 +24,8 @@
 * [Wappalyzer](https://www.wappalyzer.com/) 查看网站使用的技术
 * [JetBrains IDE Support](https://chrome.google.com/webstore/detail/inkoiibnbpihoajgfooepihmclbhjkad) WebStrom调试工具
 * [octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US)
+* [dribbble new tab]()
+* [PrintFriendly & PDF](https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj)
 
 
 ## 参考

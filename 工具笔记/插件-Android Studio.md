@@ -2,7 +2,7 @@
 
 * [plantUML](http://plugins.jetbrains.com/plugin/7017-plantuml-integration) 显示类的UML图，还需要安装`graphviz`才能显示，详见[这里](http://www.gcssloop.com/course/UsePlantUMLInAS(Mac))
 
-* [Alibaba Java Code Guidelines](https://github.com/alibaba/p3c/tree/master/idea-plugin) 阿里巴巴Java规范插件
+* [Alibaba Java Code Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) 阿里巴巴Java规范插件
 * [Android Code Generator](http://plugins.jetbrains.com/plugin/7595-android-code-generator) 根据布局文件快速生成对应的Activity，Fragment，Adapter，Menu
 * [Android Parcelable code generator](http://plugins.jetbrains.com/plugin/7332-android-parcelable-code-generator) JavaBean序列化，快速实现Parcelable接口
 * [SelectorChapek for Android](http://plugins.jetbrains.com/plugin/7298-selectorchapek-for-android) 组合生成xml图片
@@ -25,9 +25,9 @@
 * [lint-cleaner-plugin](https://github.com/marcoRS/lint-cleaner-plugin) 移除Android中无用资源
 * [gradle-packer-plugin](https://github.com/mcxiaoke/gradle-packer-plugin) 让多渠道打包变的更简单
 * [GradleDependenciesHelperPlugin](https://github.com/ligi/GradleDependenciesHelperPlugin) maven gradle 依赖支持自动补全
-* [idea-markdown](https://github.com/nicoulaj/idea-markdown) markdown插件
+* [Markdown support](http://plugins.jetbrains.com/plugin/7793-markdown-support) markdown插件
+* [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)
 * [Methods Count](http://www.methodscount.com/) 查询android三方库的方法数
-* [Markdown support](http://plugins.jetbrains.com/plugin/7793-markdown-support)
 
 ### 参考
 * [Android Studio提高效率常用插件整理](https://blog.csdn.net/jia635/article/details/78811892)
