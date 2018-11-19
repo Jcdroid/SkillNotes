@@ -28,6 +28,8 @@
 * [Markdown support](http://plugins.jetbrains.com/plugin/7793-markdown-support) markdown插件
 * [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)
 * [Methods Count](http://www.methodscount.com/) 查询android三方库的方法数
+* [Fir.im upload](https://plugins.jetbrains.com/plugin/7640-fir-im-upload)
+* [Protobuf Support](https://plugins.jetbrains.com/plugin/8277-protobuf-support)
 
 ### 参考
 * [Android Studio提高效率常用插件整理](https://blog.csdn.net/jia635/article/details/78811892)
