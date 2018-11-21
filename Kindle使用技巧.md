@@ -1,5 +1,8 @@
 # Kindle使用技巧
 
+### 综合
+* [Kindle伴侣](https://bookfere.com/)
+
 ### mobi下载地址
 
 * [gutenberg](http://www.gutenberg.org)

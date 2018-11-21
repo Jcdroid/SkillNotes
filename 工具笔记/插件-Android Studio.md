@@ -1,7 +1,6 @@
 # Android Studio插件
 
 * [plantUML](http://plugins.jetbrains.com/plugin/7017-plantuml-integration) 显示类的UML图，还需要安装`graphviz`才能显示，详见[这里](http://www.gcssloop.com/course/UsePlantUMLInAS(Mac))
-
 * [Alibaba Java Code Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) 阿里巴巴Java规范插件
 * [Android Code Generator](http://plugins.jetbrains.com/plugin/7595-android-code-generator) 根据布局文件快速生成对应的Activity，Fragment，Adapter，Menu
 * [Android Parcelable code generator](http://plugins.jetbrains.com/plugin/7332-android-parcelable-code-generator) JavaBean序列化，快速实现Parcelable接口
@@ -30,6 +29,7 @@
 * [Methods Count](http://www.methodscount.com/) 查询android三方库的方法数
 * [Fir.im upload](https://plugins.jetbrains.com/plugin/7640-fir-im-upload)
 * [Protobuf Support](https://plugins.jetbrains.com/plugin/8277-protobuf-support)
+* [Statistic](https://plugins.jetbrains.com/plugin/4509-statistic) 代码行数统计
 
 ### 参考
 * [Android Studio提高效率常用插件整理](https://blog.csdn.net/jia635/article/details/78811892)
