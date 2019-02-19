@@ -307,3 +307,4 @@ and have 2 and 8 different commits each, respectively.
 10. [git-recipes-高质量的Git中文教程](https://github.com/geeeeeeeeek/git-recipes/wiki)
 11. [代码回滚：Reset、Checkout、Revert的选择](https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-代码回滚：Reset、Checkout、Revert的选择)
 12. [Git 原理入门](http://www.ruanyifeng.com/blog/2018/10/git-internals.html)
+13. [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
