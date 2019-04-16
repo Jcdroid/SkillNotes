@@ -9,63 +9,65 @@
 ### 基本操作
 
 * 初始化：`git init`
-  
+
 * 添加远程仓库：`git remote add origin <url>`
-  
+
 * 更换已添加远程仓库：`git remote set-url origin <url>`
-  
+
 * 移除已添加远程仓库：`git remote rm origin`
-  
+
 * 克隆远程仓库：`git clone <url>`
-  
+
 * 克隆远程仓库（只clone master分支的每个文件最新的一个提交）：`git clone <url> master --depth=1`
-  
+
 * 添加所有文件：`git add *`
-  
+
 * 移动文件或目录，或是更改其名称：`git mv <old path> <new path>`、`git mv <old name> <new name>`
-  
+
 * 从本地仓库移除文件或文件夹：`git rm --cached <filename>`、`git rm -r --cached <floder>`
-  
+
+* 从本地仓库移除文件或文件夹并删除文件：`git rm <filename>`、`git rm -r <floder>`（或者直接在AS中Delete删除文件即可）
+
 * 移除文件：`git rm <file>`
-  
+
 * 添加提交文件到本地仓库：`git commit -m "message"`
-  
+
 * 停止变基：`git rebase --abort`
-  
+
 * 修改最后一次提交（如果已经推送了最后一次提交就不要修正它）：`git commit --amend`
-  
+
 * 修改多个提交信息（这是一个变基命令 - 在 HEAD~<number>..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息）：先执行`git rebase -i HEAD~<number>`变基，然后把需要编辑的提交id前面的`pick`改为`edit`后退出编辑，运行`git commit --amend`，修改好message后，再运行`git rebase --continue`后将会自动地应用另外前面的几个提交
-  
+
   > 这个命令将会自动地应用另外两个提交，然后就完成了。 如果需要将不止一处的 pick 改为 edit，需要在每一个修改为 edit 的提交上重复这些步骤（运行`git commit --amend`，修改好message后，再运行`git rebase --continue`）。 每一次，Git 将会停止，让你修正提交，然后继续直到完成。
-  
+
 * 从本地仓库push文件到远程主仓库：`git push origin master`
-  
+
 * 从远程主仓库pull文件到本地仓库：`git pull origin master`
-  
+
 * 查看所有日志记录：`git reflog`
-  
+
 * 查看commit日志：`git log`
-  
+
 * 查看commit日志（一行显示）：`git log --pretty=oneline`
-  
+
 * 查看commit日志（仅显示SHA1的前7个字符）：`git log --abbrev-commit`
-  
+
 * 查看commit日志（一行显示，仅显示SHA1的前7个字符混合使用）：`git log --pretty=oneline --abbrev-commit`
-  
+
 * 插件commit日志（显示 ASCII 图形表示的分支合并历史）：`git log --graph`
-  
+
 * 自定义commit日志格式：`git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --`
-  
+
 * 查看仓库状态：`git status`
-  
+
 * 查看修改：`git diff`
-  
+
 * 生成一个新的提交来撤销某次提交，此次提交之前的commit记录都会被保留，并且工程将恢复到对应commit id位置：`git revert <commit id>`
-  
+
 * 撤销添加到缓存区的修改：`git reset HEAD <file>`，`HEAD`表示最新的版本
-  
+
 * 设置别名：`git config --global alias.<alias> <original name>`或直接在`.gitconfig`文件中添加
-  
+
   ``` 
   [alias]
   	<alias> = <original name>
@@ -78,24 +80,24 @@
   	br = branch
   	logpre = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   ```
-  
+
 * 忽略文件和文件夹：新建`.gitignore`（windows中需要创建时使用.gitignore.后面加一个.才不会报不能存在空名字的问题），然后添加忽略文件和文件夹的路径，如果想忽略文件夹下面的所有文件和文件夹，但是同时想保存这个文件夹，这时就需要在这个文件夹下面新建.gitkeep文件(1)
-  
+
 * 改变中文默认转义成/xxx/xxx/xxx：`git config --global core.quotepath false`  core.quotepath设为false的话，就不会对0×80以上的字符进行quote。中文显示正常。
-  
+
 * 更改remote：`git remote rm origin`然后添加`git remote add origin <url>`
-  
+
 * 配置公钥：Mac/Linux 打开命令行终端, Windows 打开 Git Bash 。 输入`ssh-keygen -t rsa -C "[username@example.com](mailto:username@example.com)"`,( 注册的邮箱)，接下来点击enter键即可（也可以输入密码）。
-  
+
   ``` 
   $ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
   # Creates a new ssh key, using the provided email as a label
   # Generating public/private rsa key pair.
   Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]  // 推荐使用默认地址,如果使用非默认地址可能需要配置 .ssh/config
   ```
-  
+
   成功之后
-  
+
   ``` 
   Your identification has been saved in /Users/you/.ssh/id_rsa.
   # Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
@@ -146,6 +148,8 @@
 * 新建并切换本地分支：`git checkout -b <branch>`
 * 删除本地分支：`git branch -d <branch>`
 * 强制删除本地分支：`git branch -D <branch>`
+* 重命名本地分支（当前在此分支）：`git branch -m <> <new branch name>`
+* 重命名本地分支（当前不在此分支）：`git branch -m <old branch name> <new branch name>`
 * 查看本地分支：`git branch`
 * 查看远程分支：`git branch -r`
 * 查看所有分支（包括远程分支）：`git branch -a`
@@ -220,13 +224,50 @@
 
 ### submodule
 
-##### 创建submodule工程
-* 使用`git submodule add <url> <path>`，不加path默认当前路径
+##### 已有lib创建submodule
 
-##### 构建submodule工程
-* 构建包含submodule的工程时，先进行`git submodule init`，然后再执行`git submodule update --remote`
+1. 执行`git rm -r --cached -f <lib>`，从git中移除
+2. 把lib移除项目工程（包括项目所在的目录一起），再提交到新建的lib的repo
+3. 在原来的工程中执行`git submodule add <url> <path>`，不加path默认当前命令行所在路径，但会使用git项目的名称作为文件的目录，建议`cd ..`到上一级指定一下path。**注意，如果出现错误，请重新创建submodule，需要删除.gitmodules + .git/modules和path目录下clone的文件**
+4. 配置lib到android项目中
+
+##### 创建submodule工程
+* 使用`git submodule add <url> <path>`，不加path默认当前命令行所在路径
+
+#####  给已有项目引入submodule模块
+
+- 使用`git submodule add <url> <path>`，不加path默认当前命令行所在路径
+
+##### 构建含有submodule的工程
+
+* 克隆含有子模块的仓库：`git clone -recursive <url>`，或者`git clone <url>`，`git submodule init`，`git submodule update`
+
+* 构建包含submodule的工程时，先进行`git submodule init`，然后再执行`git submodule update --remote`或者`git submodule update --init --recursive`
 * 如果出现`Please make sure you have the correct access rights and the repository exists.`错误，可能是没有库访问的权限问题
 * 如果出现`Host key verification failed. fatal: Could not read from remote repository.`，则请用ssh链接，并生成ssh的`id_rsa.pub`文件并配置到git服务器端，配置好之后执行`ssh -T git@xxx.com`，输入yes回车即可，参考[这里](https://blog.csdn.net/jingtingfengguo/article/details/51892864)
+
+##### 更新submodule
+> `git submodule update --remote`
+
+##### 切换分支
+> 只要cd 进入这个工程，然后使用checkout就可以只切换这个工程的分支
+
+##### submodule跟踪不同分支
+
+> ```console
+> git config -f .gitmodules submodule.<lib name>.branch <branch name>
+> ```
+
+##### 更改git submodule的remote仓库的url
+
+> 更改`.gitmodules`的`url`到最新的仓库地址，然后执行`git submodule sync`即可。详见[这里](https://stackoverflow.com/questions/913701/how-to-change-the-remote-repository-for-a-git-submodule)
+
+##### submodule在主项目的其他分支初始化后，合并到其他分支的解决办法
+* 删除submodule指定的path目录下的所有文件
+* 再执行`git checkout <branch>`（这时会出现类似`fatal: cannot create directory at xxx': Permission denied`的错误，并且会把当前分支的`.gitmodules`删除）
+* 再次执行`git checkout <branch>`即可，就可以正常切换分支
+* 再执行`git merge <submodule branch>`就可以合并submodule的分支过来了。
+* `Setting - Version Control`可以添加其他的Git，比如submodule的Git，有时候有submodule的分支checkout到其他分支会出现问题，删除掉`Setting - Version Control`下submodule的Git即可。如果出现submodule的git中Head分支指定不明，请执行`git checkout master`把HEAD指向master分支。
 
 ### GitLab操作
 
@@ -251,42 +292,46 @@
 ### 常见错误
 
 * `Xcode`执行`commit`时出现`Couldn’t communicate with a helper application.`
-  
+
   > 可以在命令行中使用`git commit <file> -m <message>`
-  
+
 * 如果Xcode进行pull出现检测冲突，检测完之后没有出现冲突的类的选取的编辑框，也没有pull成功
-  
+
   > 用命令行进行pull，出现冲突后，手动解决冲突即可
-  
+
 * error: pathspec 'xxx.m' did not match any file(s) known to git.
-  
+
   > 可以在命令行中使用`git commit <file> -m <message>`
-  
+
 * The source control operation failed because no repository could be found.
-  
+
   > 可以在命令行中使用`git commit <file> -m <message>`
 
 * Git - Your branch and 'origin/xxx' have diverged
 
-	> 在本地分支执行`git rebase`，然后`push`到远端
+  > 在本地分支执行`git rebase`，然后`push`到远端
 
 * A电脑改名后提交到git，然后B电脑也改动了同一个文件，但是在`pull`之前B电脑没有`commit`，而是使用`stash`再`pull`下远程的改动，然后再`stash pop`之后解决`updated stream`和`stash`产生的冲突，最后出现了下面的问题，一直使用`add`都不能`add`进`index`中。折腾半天后，发现时由于A电脑改名的引起的问题，于是执行`git mv git笔记.md Git笔记.md`修复了。**可能是由于之前在A电脑上rename没有使用 `git rm`**。详细记录如下：
 
-	![image](../images/改名后冲突合并.png)
+  ![image](../images/改名后冲突合并.png)
 
-	![image](../images/改名后冲突合并1.png)
+  ![image](../images/改名后冲突合并1.png)
 
-	![image](../images/改名后冲突合并2.png)
-如果出现大小写文件夹出现冲突的问题，比如只想保留大写下面的文件，那就可以先把同时处在两个大小写不同的目录下的文件复制出来（实际中你只能看到一个文件，但这个文件代表两个目录下的文件），再使用`git rm -r <floder>`移除，再把备份的文件copy进来，以达到删除小写目录的操作
+  ![image](../images/改名后冲突合并2.png)
+  如果出现大小写文件夹出现冲突的问题，比如只想保留大写下面的文件，那就可以先把同时处在两个大小写不同的目录下的文件复制出来（实际中你只能看到一个文件，但这个文件代表两个目录下的文件），再使用`git rm -r <floder>`移除，再把备份的文件copy进来，以达到删除小写目录的操作
 
 * 当`git status`出现下面的`have diverged`状态并且不能pull时
 
-	```
-	On branch develop
-Your branch and 'origin/develop' have diverged,
-and have 2 and 8 different commits each, respectively.
-	```
-可尝试关闭编辑器，可能是编辑器占用资源引起的
+  ```
+  On branch develop
+  Your branch and 'origin/develop' have diverged,
+  and have 2 and 8 different commits each, respectively.
+  ```
+  可尝试关闭编辑器，可能是编辑器占用资源引起的
+
+* `Android Studio`的Terminal中git log显示中文不正常
+
+  > 在环境变量-系统变量中创建`LC_ALL` - `C.UTF-8`，在重启AS
 
 ### git commit的message规范
 * `ADD <msg>` 增加文件、功能等

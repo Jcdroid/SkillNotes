@@ -31,6 +31,7 @@
 * [Protobuf Support](https://plugins.jetbrains.com/plugin/8277-protobuf-support)
 * [Statistic](https://plugins.jetbrains.com/plugin/4509-statistic) 代码行数统计
 * [.ignore](https://plugins.jetbrains.com/plugin/7495--ignore) 生成ignore文件
+* [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport) 支持Bash脚本
 
 ### 参考
 * [Android Studio提高效率常用插件整理](https://blog.csdn.net/jia635/article/details/78811892)

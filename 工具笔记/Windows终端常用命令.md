@@ -1,6 +1,7 @@
 # Windows终端常用命令
 ### 基本命令
 * `explorer .` 在explorer打开当前路径
+* `explorer app\build\outputs\apk ` Windows下打开指定路径
 * `echo %path%` 可以查看配置的环境变量path
 * 打印目录tree型结构：windows中默认带有tree命令，可以输入`tree /?`查看帮助信息
 * 将tree输入结果写入文件：`tree /F >tree.txt`

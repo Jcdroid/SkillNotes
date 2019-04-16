@@ -14,7 +14,11 @@
 * Matrix67:`http://www.matrix67.com/blog/feed.asp`
 * 战隼的学习探索:`http://feed.read.org.cn/`
 
+### 时尚
+* 
+
 ### 新闻
+
 * 政见:`http://cnpolitics.org/feed/`
 * 大家:`http://hanhanone.sinaapp.com/feed/dajia`
 * 壹读博文:`http://yidu.im/rss`
@@ -63,3 +67,4 @@
 ### 参考
 * [分类整理了份值得订阅的非技术类的RSS源，欢迎补充](http://www.starming.com/index.php?v=index&view=75)
 * [你必读的 RSS 订阅源有哪些？](https://www.zhihu.com/question/19580096)
+* [Rss-IT](https://github.com/Gracker/Rss-IT)
