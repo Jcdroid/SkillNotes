@@ -9,4 +9,13 @@
 ### Tips
 * 删除github登录账号等账号密码操作：`控制面板\用户帐户和家庭安全\凭据管理器`，删除对应的凭据即可
 
+### Windows10激活
+* win10 G版激活方法如下：
+	```
+	在命令提示符（管理员）下运行下面的指令
+	slmgr /ipk YYVX9-NTFWV-6MDM3-9PT4T-4M68B
+	slmgr /skms kms.03k.org
+	slmgr /ato
+	```
+
 ### 常见问题

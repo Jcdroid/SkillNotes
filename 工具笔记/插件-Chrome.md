@@ -29,6 +29,7 @@
 * [Refined GitHub](https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf)
 * [捕捉网页截图 - FireShot](https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=zh-CN)
 * [Vysor](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm)
+* [股票小助手](https://chrome.google.com/webstore/detail/股票小助手/pbhnnkmgakdodiillkoacilnkgonfkpe?hl=zh-CN)
 
 
 ## 参考
