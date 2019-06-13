@@ -146,6 +146,7 @@
 * 切换本地分支：`git checkout <branch>`
 * 推送本地分支：`git push origin <branch>`
 * 新建并切换本地分支：`git checkout -b <branch>`
+* 新建并切换本地分支（以某一个commit id创建分支）：`git checkout -b <branch> <commit id>`
 * 删除本地分支：`git branch -d <branch>`
 * 强制删除本地分支：`git branch -D <branch>`
 * 重命名本地分支（当前在此分支）：`git branch -m <> <new branch name>`
