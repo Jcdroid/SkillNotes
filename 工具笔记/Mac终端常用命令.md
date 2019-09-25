@@ -22,7 +22,11 @@
 * 打印目录tree型结构：`find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'`**（但是）我无法指定打印层级**
 * 可以使用工具`tree`打印目录tree型结构（可以指定层级）：`tree -L 3`，如果中文乱码，可以使用`tree -N -L -3`
 
+* plist文件转json：plutil -convert json <data>.plist -o <data>.json
+* json文件转plist：plutil -convert xml1 <data>.json -o <data>.plist
+
 ### 解压zip
+
 语法：unzip [options] 压缩文件名.zip，具体跟多的参数可以直接执行"unzip"查看
 
 常用options的含义分别为： 

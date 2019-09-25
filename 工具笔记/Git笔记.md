@@ -237,18 +237,19 @@
 
 #####  给已有项目引入submodule模块
 
-- 使用`git submodule add <url> <path>`，不加path默认当前命令行所在路径
+- 删除需要submodule的目录下的所有文件，请使用`git rm -r <path>`，并且保证从.git的index中已删除，否则提示`path already exists in the index`
+- 使用`git submodule add <url> <path>`，不加path默认当前命令行所在路径，此时会clone submodule中的代码
 
 ##### 构建含有submodule的工程
 
-* 克隆含有子模块的仓库：`git clone -recursive <url>`，或者`git clone <url>`，`git submodule init`，`git submodule update`
+* 克隆含有子模块的仓库：`git clone -recursive <url>`，或者`git clone <url>`，`git submodule init`，`git submodule update --remote` 
 
-* 构建包含submodule的工程时，先进行`git submodule init`，然后再执行`git submodule update --remote`或者`git submodule update --init --recursive`
+* 构建包含submodule的工程时，先进行`git submodule init`，然后再执行`git submodule update --remote`或者一条`git submodule update --init --recursive`命令完成init和update --remote操作
 * 如果出现`Please make sure you have the correct access rights and the repository exists.`错误，可能是没有库访问的权限问题
 * 如果出现`Host key verification failed. fatal: Could not read from remote repository.`，则请用ssh链接，并生成ssh的`id_rsa.pub`文件并配置到git服务器端，配置好之后执行`ssh -T git@xxx.com`，输入yes回车即可，参考[这里](https://blog.csdn.net/jingtingfengguo/article/details/51892864)
 
 ##### 更新submodule
-> `git submodule update --remote`
+> `git submodule update --remote`（切记不能使用`git submodule update`，这样会使用本地fetch到的commit，而不是更新remote端的最新commit，并且分支会被切换到一个临时分支上）
 
 ##### 切换分支
 > 只要cd 进入这个工程，然后使用checkout就可以只切换这个工程的分支
@@ -264,10 +265,14 @@
 > 更改`.gitmodules`的`url`到最新的仓库地址，然后执行`git submodule sync`即可。详见[这里](https://stackoverflow.com/questions/913701/how-to-change-the-remote-repository-for-a-git-submodule)
 
 ##### submodule在主项目的其他分支初始化后，合并到其他分支的解决办法
-* 删除submodule指定的path目录下的所有文件
+
+> 可能在切换分支的时候会出现分支中的dist的HEAD出现detached的问题，在submodule目录中执行`git checkout master`即可
+
+* 删除submodule指定的path目录下（也可以把这个目录删除）的所有文件
 * 再执行`git checkout <branch>`（这时会出现类似`fatal: cannot create directory at xxx': Permission denied`的错误，并且会把当前分支的`.gitmodules`删除）
 * 再次执行`git checkout <branch>`即可，就可以正常切换分支
 * 再执行`git merge <submodule branch>`就可以合并submodule的分支过来了。
+* 最后执行`git submoudle update`从远端仓库同步代码
 * `Setting - Version Control`可以添加其他的Git，比如submodule的Git，有时候有submodule的分支checkout到其他分支会出现问题，删除掉`Setting - Version Control`下submodule的Git即可。如果出现submodule的git中Head分支指定不明，请执行`git checkout master`把HEAD指向master分支。
 
 ### GitLab操作
